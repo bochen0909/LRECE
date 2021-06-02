@@ -32,5 +32,9 @@ RUN  /opt/conda/bin/conda create  -c bioconda --name python3 python=2.7 htslib=1
     echo "set -o vi" >> ~/.bashrc
 
 
+RUN git clone https://github.com/bochen0909/MECAT.git && cd MECAT && make && cp -r Linux-amd64/bin/* /usr/bin/
+RUN git clone https://github.com/bochen0909/FLAS.git && cd FLAS && make && cp -r bin/* /usr/bin/ && cp runFLAS.py /usr/bin/
+
+RUN ls -alrt /usr/bin/
 
 CMD [ "/bin/bash" ]
