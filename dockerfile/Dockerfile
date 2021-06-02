@@ -1,5 +1,5 @@
 # docker build -t lizhen0909/lrece .
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH
@@ -24,7 +24,7 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py37_4.9.2-Linux
 RUN apt-get install bzip2
 
 # env python3.7
-RUN  /opt/conda/bin/conda create  -c bioconda --name python3 python=2.7 minimap2 seqtk sra-tools=2.9.1 pbh5tools poretools samtools && \
+RUN  /opt/conda/bin/conda create  -c bioconda --name python3 python=2.7 htslib=1.3.1 minimap2=2.17 seqtk=1.3 sra-tools=2.9.1 pbh5tools=0.8.0 poretools=0.6.1a1 samtools=1.7 && \
     /opt/conda/bin/conda clean -tipsy && \
     echo "conda activate python3" >> ~/.bashrc && \
     echo "alias l='ls -alrt'" >> ~/.bashrc      && \

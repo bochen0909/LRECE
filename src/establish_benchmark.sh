@@ -130,10 +130,10 @@ download_data_with_sra_tools(){
 prepare_ecoli_data(){
   local d1_dir
   d1_dir="${BENCHMARK_DIR}/ecoli"
-  mkdir "${d1_dir}"
+  mkdir -p  "${d1_dir}"
   local temp_d1_dir
   temp_d1_dir="${TEMP_DIR}/ecoli"
-  mkdir "${temp_d1_dir}"
+  mkdir -p "${temp_d1_dir}"
 
   # Prepare short reads
   cd "${temp_d1_dir}"
@@ -210,10 +210,10 @@ prepare_ecoli_data(){
 prepare_yeast_data(){ 
   local d2_dir 
   d2_dir="${BENCHMARK_DIR}/yeast" 
-  mkdir "${d2_dir}" 
+  mkdir -p "${d2_dir}" 
   local temp_d2_dir 
   temp_d2_dir="${TEMP_DIR}/yeast" 
-  mkdir "${temp_d2_dir}" 
+  mkdir -p "${temp_d2_dir}" 
   cd "${temp_d2_dir}" # Will stay in this directory before the end of the function! 
  
   # Prepare short reads 
@@ -269,10 +269,10 @@ prepare_yeast_data(){
 prepare_fruit_fly_data(){
   local d3_dir 
   d3_dir="${BENCHMARK_DIR}/fruit_fly" 
-  mkdir "${d3_dir}" 
+  mkdir -p "${d3_dir}" 
   local temp_d3_dir 
   temp_d3_dir="${TEMP_DIR}/fruit_fly" 
-  mkdir "${temp_d3_dir}" 
+  mkdir -p "${temp_d3_dir}" 
   cd "${temp_d3_dir}" # Will stay in this directory before the end of the function! 
 
   # Prepare short reads 
@@ -309,8 +309,8 @@ prepare_fruit_fly_data(){
 main(){
   check_args
   # TODO(haowen): Start from last time to establish the benchmark
-  mkdir "${TEMP_DIR}"
-  mkdir "${BENCHMARK_DIR}"
+  mkdir -p "${TEMP_DIR}"
+  mkdir -p "${BENCHMARK_DIR}"
   eval "$(conda shell.bash hook)"
   conda activate lrece
   if [[ "${FLAGS_ecoli}" -eq "${FLAGS_TRUE}" ]]; then
