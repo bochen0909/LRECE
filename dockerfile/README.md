@@ -25,3 +25,7 @@ Suppose there is a fasta/fastq file in $HOME
 ## fastq to fasta
 
     docker run  -it -e HOST_USER_ID=$(id -u) -e HOST_USER_GID=$(id -g) -v ~:/data lizhen0909/lrece bash -i -c "cd /data/ && seqtk seq -A a.fastq > a.fasta"
+
+## run pbsim2
+
+    docker run  -it  -v ~:/data lizhen0909/lrece bash -i -c "cd /data/ && pbsim --depth 5 --hmm_model /pbsim2/data/P6C4.model a.fasta"
