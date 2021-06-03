@@ -53,6 +53,11 @@ RUN wget https://github.com/marbl/canu/releases/download/v2.1.1/canu-2.1.1.Linux
 RUN apt-get install default-jre -y
 RUN apt-get install gnuplot -y
 
+RUN apt-get install autotools-dev autoconf -y
+
+
+RUN git clone https://github.com/yukiteruono/pbsim2.git  && cd pbsim2 && ./configure && make && cp src/pbsim /usr/bin/ 
+
 
 RUN ls -alrt /usr/bin/
 
