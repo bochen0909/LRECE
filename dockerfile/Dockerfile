@@ -48,6 +48,11 @@ cp lordec-correct lordec-stat lordec-trim lordec-trim-split  lordec-build-SR-gra
 
 RUN cd /usr/bin/ && ln -s lordec LoRDEC
 
+RUN wget https://github.com/marbl/canu/releases/download/v2.1.1/canu-2.1.1.Linux-amd64.tar.xz && tar xf canu-2.1.1.Linux-amd64.tar.xz && cp -r canu-2.1.1/* /usr/
+
+RUN apt-get install default-jre -y
+RUN apt-get install gnuplot -y
+
 
 RUN ls -alrt /usr/bin/
 
